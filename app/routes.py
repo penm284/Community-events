@@ -20,14 +20,8 @@ def index():
     events = list(collection.find({}))
     #shows html
     return render_template('index.html', events = events)
-#add home page
-@app.route('/add')
-def add():
-    #connect to database
-    events = mongo.db.events
-    #insert new data
-    events.insert({'name':'last day of school'})
-    return "The data was added to the database"
+
+
 
 @app.route('/input')
 def input():
@@ -51,3 +45,10 @@ def results():
     print(events)
     #html
     return render_template('index.html', events = events)
+
+@app.route('/delete_events')
+def delete_events():
+    events = mongo.db.events
+
+    events.delete_many({})
+    print ("Documents Deleted")
