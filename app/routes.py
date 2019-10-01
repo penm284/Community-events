@@ -1,4 +1,4 @@
-import os
+
 from app import app
 from flask import render_template, request, redirect
 
@@ -51,4 +51,4 @@ def delete_events():
     events = mongo.db.events
 
     events.delete_many({})
-    print ("Documents Deleted")
+    return ("Documents Deleted")
