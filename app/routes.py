@@ -51,4 +51,4 @@ def delete_events():
     events = mongo.db.events
 
     events.delete_many({})
-    return ("Documents Deleted")
+    return ("All events have been deleted")
